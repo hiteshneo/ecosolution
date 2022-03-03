@@ -1,0 +1,22 @@
+{
+    "sourceFile": "app/Models/PostsMedia.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1629223910559,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1629567381040,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n  */\n class PostsMedia extends BaseModel\n {\n \n-    protected $table = 'posts';\n+    protected $table = 'posts_medias';\n /**\n      * Dates.\n      *\n      * @var array\n@@ -27,5 +27,17 @@\n     protected $dates = [\n         'created_at',\n         'updated_at',\n     ];\n+\n+    protected $appends = ['media_link'];\n+\n+    public function getMediaLinkAttribute()\n+    {\n+        if (!empty($this->media_files)) {\n+            //return Storage::disk('profile_upload')->url($this->image);\n+            return env('APP_URL').'/storage/app/public/posts/'.$this->media_files;\n+        } else {\n+            return env('APP_URL').'/storage/app/public/posts/default.png';\n+        }\n+    }\n }\n"
+                }
+            ],
+            "date": 1629223910559,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Models;\n\nuse Laravel\\Passport\\HasApiTokens;\nuse Illuminate\\Notifications\\Notifiable;\nuse App\\Models\\Auth\\Traits\\Access\\UserAccess;\nuse App\\Models\\Auth\\Traits\\Scopes\\UserScopes;\nuse Illuminate\\Database\\Eloquent\\SoftDeletes;\nuse App\\Models\\Auth\\Traits\\Methods\\UserMethods;\nuse App\\Models\\Auth\\Traits\\Attributes\\UserAttributes;\nuse App\\Models\\Auth\\Traits\\Relationships\\UserRelationships;\nuse App\\User;\n\n/**\n * Class User.\n */\nclass PostsMedia extends BaseModel\n{\n\n    protected $table = 'posts';\n/**\n     * Dates.\n     *\n     * @var array\n     */\n    protected $dates = [\n        'created_at',\n        'updated_at',\n    ];\n}\n"
+        }
+    ]
+}

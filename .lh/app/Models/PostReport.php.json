@@ -1,0 +1,38 @@
+{
+    "sourceFile": "app/Models/PostReport.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1629396832564,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1629396838968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n  */\n class PostReport extends BaseModel\n {\n \n-    protected $table = 'posts_medias';\n+    protected $table = 'post_reports';\n /**\n      * Dates.\n      *\n      * @var array\n"
+                },
+                {
+                    "date": 1629467263552,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,5 +27,13 @@\n     protected $dates = [\n         'created_at',\n         'updated_at',\n     ];\n+\n+    /**\n+     * @return \\Illuminate\\Database\\Eloquent\\Relations\\HasOne\n+     */\n+    public function category()\n+    {\n+        return $this->belongsTo(Voyager::modelClass('Post'));\n+    }\n }\n"
+                },
+                {
+                    "date": 1629467269303,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n \n     /**\n      * @return \\Illuminate\\Database\\Eloquent\\Relations\\HasOne\n      */\n-    public function category()\n+    public function post()\n     {\n         return $this->belongsTo(Voyager::modelClass('Post'));\n     }\n }\n"
+                },
+                {
+                    "date": 1629467302051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n \n     /**\n      * @return \\Illuminate\\Database\\Eloquent\\Relations\\HasOne\n      */\n-    public function post()\n+    public function posts()\n     {\n-        return $this->belongsTo(Voyager::modelClass('Post'));\n+        return $this->belongsTo(Voyager::modelClass('Post'), 'voxo_media_id', 'id');\n     }\n }\n"
+                },
+                {
+                    "date": 1629467432109,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,9 @@\n use App\\Models\\Auth\\Traits\\Methods\\UserMethods;\n use App\\Models\\Auth\\Traits\\Attributes\\UserAttributes;\n use App\\Models\\Auth\\Traits\\Relationships\\UserRelationships;\n use App\\User;\n+use TCG\\Voyager\\Facades\\Voyager;\n \n /**\n  * Class User.\n  */\n"
+                }
+            ],
+            "date": 1629396832564,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Models;\n\nuse Laravel\\Passport\\HasApiTokens;\nuse Illuminate\\Notifications\\Notifiable;\nuse App\\Models\\Auth\\Traits\\Access\\UserAccess;\nuse App\\Models\\Auth\\Traits\\Scopes\\UserScopes;\nuse Illuminate\\Database\\Eloquent\\SoftDeletes;\nuse App\\Models\\Auth\\Traits\\Methods\\UserMethods;\nuse App\\Models\\Auth\\Traits\\Attributes\\UserAttributes;\nuse App\\Models\\Auth\\Traits\\Relationships\\UserRelationships;\nuse App\\User;\n\n/**\n * Class User.\n */\nclass PostReport extends BaseModel\n{\n\n    protected $table = 'posts_medias';\n/**\n     * Dates.\n     *\n     * @var array\n     */\n    protected $dates = [\n        'created_at',\n        'updated_at',\n    ];\n}\n"
+        }
+    ]
+}

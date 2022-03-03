@@ -1,0 +1,18 @@
+{
+    "sourceFile": "app/Models/PostLike.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1629470926096,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1629470926096,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Models;\n\nuse App\\Models\\Traits\\ModelAttributes;\n\nclass PostLike extends BaseModel\n{\n    use ModelAttributes;\n    protected $table = 'voxo_media_likes';\n    /**\n     * Fillable.\n     *\n     * @var array\n     */\n    protected $fillable = [\n        'user_id',\n        'post_id',\n        'like_count',\n    ];\n\n    /**\n     * Dates.\n     *\n     * @var array\n     */\n    protected $dates = [\n        'created_at',\n        'updated_at',\n    ];\n}\n"
+        }
+    ]
+}

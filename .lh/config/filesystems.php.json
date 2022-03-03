@@ -1,0 +1,18 @@
+{
+    "sourceFile": "config/filesystems.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1628073578087,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1628073578087,
+            "name": "Commit-0",
+            "content": "<?php\n\nreturn [\n\n    /*\n    |--------------------------------------------------------------------------\n    | Default Filesystem Disk\n    |--------------------------------------------------------------------------\n    |\n    | Here you may specify the default filesystem disk that should be used\n    | by the framework. The \"local\" disk, as well as a variety of cloud\n    | based disks are available to your application. Just store away!\n    |\n    */\n\n    'default' => env('FILESYSTEM_DRIVER', 'local'),\n\n    /*\n    |--------------------------------------------------------------------------\n    | Default Cloud Filesystem Disk\n    |--------------------------------------------------------------------------\n    |\n    | Many applications store files both locally and in the cloud. For this\n    | reason, you may specify a default \"cloud\" driver here. This driver\n    | will be bound as the Cloud disk implementation in the container.\n    |\n    */\n\n    'cloud' => env('FILESYSTEM_CLOUD', 's3'),\n\n    /*\n    |--------------------------------------------------------------------------\n    | Filesystem Disks\n    |--------------------------------------------------------------------------\n    |\n    | Here you may configure as many filesystem \"disks\" as you wish, and you\n    | may even configure multiple disks of the same driver. Defaults have\n    | been setup for each driver as an example of the required options.\n    |\n    | Supported Drivers: \"local\", \"ftp\", \"sftp\", \"s3\"\n    |\n    */\n\n    'disks' => [\n\n        'local' => [\n            'driver' => 'local',\n            'root' => storage_path('app'),\n        ],\n\n        'public' => [\n            'driver' => 'local',\n            'root' => storage_path('app/public'),\n            'url' => env('APP_URL').'/storage/app/public',\n            'visibility' => 'public',\n        ],\n\n        's3' => [\n            'driver' => 's3',\n            'key' => env('AWS_ACCESS_KEY_ID'),\n            'secret' => env('AWS_SECRET_ACCESS_KEY'),\n            'region' => env('AWS_DEFAULT_REGION'),\n            'bucket' => env('AWS_BUCKET'),\n            'url' => env('AWS_URL'),\n            'endpoint' => env('AWS_ENDPOINT'),\n        ],\n        'pic_profile' => [\n            'driver' => 'local',\n            'root' => storage_path('app/public/users'),\n            'url' => env('APP_URL') . '/storage/app/public/users'\n        ],\n        'voxo' => [\n            'driver' => 'local',\n            'root' => storage_path('app/public/voxo'),\n            'url' => env('APP_URL') . '/storage/app/public/voxo'\n        ],\n        'categories_pic' => [\n            'driver' => 'local',\n            'root' => storage_path('app/public/categories'),\n            'url' => env('APP_URL') . '/storage/app/public/categories'\n        ],\n    ],\n\n];\n"
+        }
+    ]
+}

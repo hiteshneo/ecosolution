@@ -1,0 +1,54 @@
+{
+    "sourceFile": "app/Models/Post.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1629471384367,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1629471405223,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,14 +53,14 @@\n         return env('APP_URL').'/post/'.$this->id;\n     }\n     public function comments()\n     {\n-        return $this->hasMany(VoxoMediaComment::class);\n+        return $this->hasMany(VoxoMediaComment::class, 'id', 'voxo_media_id');\n     }\n \n     public function likes()\n     {\n-        return $this->hasMany(VoxoMediaLike::class);\n+        return $this->hasMany(VoxoMediaLike::class, 'id', 'voxo_media_id');\n     }\n \n     /**\n      * @param $title\n"
+                },
+                {
+                    "date": 1629471471302,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,14 +53,14 @@\n         return env('APP_URL').'/post/'.$this->id;\n     }\n     public function comments()\n     {\n-        return $this->hasMany(VoxoMediaComment::class, 'id', 'voxo_media_id');\n+        return $this->hasMany(VoxoMediaComment::class, 'voxo_media_id');\n     }\n \n     public function likes()\n     {\n-        return $this->hasMany(VoxoMediaLike::class, 'id', 'voxo_media_id');\n+        return $this->hasMany(VoxoMediaLike::class, 'voxo_media_id');\n     }\n \n     /**\n      * @param $title\n"
+                },
+                {
+                    "date": 1629471552547,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,9 @@\n use Illuminate\\Database\\Eloquent\\SoftDeletes;\n use App\\Models\\VoxoMediaComment;\n use App\\Models\\VoxoMediaLike;\n use Illuminate\\Support\\Str;\n+use App\\Models\\PostsMedia;\n \n class Post extends BaseModel\n {\n     use ModelAttributes;\n@@ -99,5 +100,12 @@\n             ->where('id', '<>', $id)\n             ->get();\n     }\n   \n+    /**\n+     * @return \\Illuminate\\Database\\Eloquent\\Relations\\HasOne\n+     */\n+    public function postMedia()\n+    {\n+        return $this->hasMany(PostsMedia::class, 'voxo_media_id');\n+    }\n }\n"
+                },
+                {
+                    "date": 1629471873753,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n         0 => 'InActive',\n         1 => 'Published',\n     ];\n \n-    protected $appends = ['share_link'];\n+    protected $appends = ['share_link', 'full_image',];\n     \n     public function getShareLinkAttribute()\n     {\n         return env('APP_URL').'/post/'.$this->id;\n@@ -107,5 +107,15 @@\n     public function postMedia()\n     {\n         return $this->hasMany(PostsMedia::class, 'voxo_media_id');\n     }\n+\n+    public function getFullImageAttribute()\n+    {\n+        if (!empty($this->avatar)) {\n+            //return Storage::disk('profile_upload')->url($this->image);\n+            return env('APP_URL').'/storage/app/public/'.$this->avatar;\n+        } else {\n+            return env('APP_URL').'/storage/app/public/users/default.png';\n+        }\n+    }\n }\n"
+                },
+                {
+                    "date": 1629471891416,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -110,11 +110,11 @@\n     }\n \n     public function getFullImageAttribute()\n     {\n-        if (!empty($this->avatar)) {\n+        if (!empty($this->image)) {\n             //return Storage::disk('profile_upload')->url($this->image);\n-            return env('APP_URL').'/storage/app/public/'.$this->avatar;\n+            return env('APP_URL').'/storage/app/public/posts/'.$this->image;\n         } else {\n             return env('APP_URL').'/storage/app/public/users/default.png';\n         }\n     }\n"
+                },
+                {
+                    "date": 1629471896971,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -114,8 +114,8 @@\n         if (!empty($this->image)) {\n             //return Storage::disk('profile_upload')->url($this->image);\n             return env('APP_URL').'/storage/app/public/posts/'.$this->image;\n         } else {\n-            return env('APP_URL').'/storage/app/public/users/default.png';\n+            return env('APP_URL').'/storage/app/public/posts/default.png';\n         }\n     }\n }\n"
+                },
+                {
+                    "date": 1629472011439,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,8 +46,12 @@\n         0 => 'InActive',\n         1 => 'Published',\n     ];\n \n+    protected $hidden = [\n+        'image'\n+    ];\n+\n     protected $appends = ['share_link', 'full_image',];\n     \n     public function getShareLinkAttribute()\n     {\n"
+                },
+                {
+                    "date": 1629472125656,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n use App\\Models\\VoxoMediaComment;\n use App\\Models\\VoxoMediaLike;\n use Illuminate\\Support\\Str;\n use App\\Models\\PostsMedia;\n+use TCG\\Voyager\\Facades\\Voyager;\n \n class Post extends BaseModel\n {\n     use ModelAttributes;\n@@ -121,5 +122,10 @@\n         } else {\n             return env('APP_URL').'/storage/app/public/posts/default.png';\n         }\n     }\n+\n+    public function authorId()\n+    {\n+        return $this->belongsTo(Voyager::modelClass('User'), 'author_id', 'id');\n+    }\n }\n"
+                },
+                {
+                    "date": 1629472216914,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -123,9 +123,9 @@\n             return env('APP_URL').'/storage/app/public/posts/default.png';\n         }\n     }\n \n-    public function authorId()\n+    public function users()\n     {\n         return $this->belongsTo(Voyager::modelClass('User'), 'author_id', 'id');\n     }\n }\n"
+                }
+            ],
+            "date": 1629471384367,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Models;\n\nuse App\\Models\\Traits\\ModelAttributes;\nuse Illuminate\\Database\\Eloquent\\SoftDeletes;\nuse App\\Models\\VoxoMediaComment;\nuse App\\Models\\VoxoMediaLike;\nuse Illuminate\\Support\\Str;\n\nclass Post extends BaseModel\n{\n    use ModelAttributes;\n\n    /**\n     * Fillable.\n     *\n     * @var array\n     */\n    protected $fillable = [\n        'user_id',\n        'content',\n        'image',\n        'video',\n        'emoji',\n        'status',\n    ];\n\n    /**\n     * Dates.\n     *\n     * @var array\n     */\n    protected $dates = [\n        'created_at',\n        'updated_at',\n    ];\n\n    /**\n     * Statuses.\n     *\n     * @var array\n     */\n    protected $statuses = [\n        0 => 'InActive',\n        1 => 'Published',\n    ];\n\n    protected $appends = ['share_link'];\n    \n    public function getShareLinkAttribute()\n    {\n        return env('APP_URL').'/post/'.$this->id;\n    }\n    public function comments()\n    {\n        return $this->hasMany(VoxoMediaComment::class);\n    }\n\n    public function likes()\n    {\n        return $this->hasMany(VoxoMediaLike::class);\n    }\n\n    /**\n     * @param $title\n     * @param int $id\n     * @return string\n     * @throws \\Exception\n     */\n    public static function createSlug($title, $id = 0)\n    {\n        // Normalize the title\n        $slug = Str::slug($title);\n\n        // Get any that could possibly be related.\n        // This cuts the queries down by doing it once.\n        $allSlugs = Post::getRelatedSlugs($slug, $id);\n\n        // If we haven't used it before then we are all good.\n        if (! $allSlugs->contains('slug', $slug)){\n            return $slug;\n        }\n\n        // Just append numbers like a savage until we find not used.\n        for ($i = 1; $i <= 10; $i++) {\n            $newSlug = $slug.'-'.$i;\n            if (! $allSlugs->contains('slug', $newSlug)) {\n                return $newSlug;\n            }\n        }\n\n        throw new \\Exception('Can not create a unique slug');\n    }\n\n    protected static function getRelatedSlugs($slug, $id = 0)\n    {\n        return Post::select('slug')->where('slug', 'like', $slug.'%')\n            ->where('id', '<>', $id)\n            ->get();\n    }\n  \n}\n"
+        }
+    ]
+}

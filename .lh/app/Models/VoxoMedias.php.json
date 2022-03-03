@@ -1,0 +1,98 @@
+{
+    "sourceFile": "app/Models/VoxoMedias.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 20,
+            "patches": [
+                {
+                    "date": 1628074936860,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1628074959707,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,12 +29,12 @@\n     ];\n \n     public function comments()\n     {\n-        return $this->hasMany(VoxoMediaComment::class);\n+        return $this->hasMany(VoxoMediaComment::class, 'voxo_media_id');\n     }\n \n     public function likes()\n     {\n-        return $this->hasMany(VoxoMediaLike::class);\n+        return $this->hasMany(VoxoMediaLike::class, 'voxo_media_id');\n     }\n }\n"
+                },
+                {
+                    "date": 1628075103095,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,9 @@\n use App\\Models\\Auth\\Traits\\Attributes\\UserAttributes;\n use App\\Models\\Auth\\Traits\\Relationships\\UserRelationships;\n use App\\Models\\VoxoMediaComment;\n use App\\Models\\VoxoMediaLike;\n+use App\\Users;\n \n /**\n  * Class User.\n  */\n@@ -36,5 +37,10 @@\n     public function likes()\n     {\n         return $this->hasMany(VoxoMediaLike::class, 'voxo_media_id');\n     }\n+\n+    public function users()\n+    {\n+        return $this->hasMany(Users::class, 'user_id');\n+    }\n }\n"
+                },
+                {
+                    "date": 1628075113924,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,7 +40,7 @@\n     }\n \n     public function users()\n     {\n-        return $this->hasMany(Users::class, 'user_id');\n+        return $this->hasOne(Users::class, 'user_id');\n     }\n }\n"
+                },
+                {
+                    "date": 1628075136349,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n use App\\Models\\Auth\\Traits\\Attributes\\UserAttributes;\n use App\\Models\\Auth\\Traits\\Relationships\\UserRelationships;\n use App\\Models\\VoxoMediaComment;\n use App\\Models\\VoxoMediaLike;\n-use App\\Users;\n+use App\\User;\n \n /**\n  * Class User.\n  */\n@@ -40,7 +40,7 @@\n     }\n \n     public function users()\n     {\n-        return $this->hasOne(Users::class, 'user_id');\n+        return $this->hasOne(User::class, 'user_id');\n     }\n }\n"
+                },
+                {
+                    "date": 1628075147392,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,7 +40,7 @@\n     }\n \n     public function users()\n     {\n-        return $this->hasOne(User::class, 'user_id');\n+        return $this->hasOne(User::class, 'id');\n     }\n }\n"
+                },
+                {
+                    "date": 1628075162008,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,7 +40,7 @@\n     }\n \n     public function users()\n     {\n-        return $this->hasOne(User::class, 'id');\n+        return $this->belongsTo(User::class, 'id');\n     }\n }\n"
+                },
+                {
+                    "date": 1628075249874,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,7 +40,7 @@\n     }\n \n     public function users()\n     {\n-        return $this->belongsTo(User::class, 'id');\n+        return $this->belongsTo(User::class, 'id', 'user_id');\n     }\n }\n"
+                },
+                {
+                    "date": 1628075261597,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,7 +40,7 @@\n     }\n \n     public function users()\n     {\n-        return $this->belongsTo(User::class, 'id', 'user_id');\n+        return $this->belongsTo(User::class, 'user_id', 'id');\n     }\n }\n"
+                },
+                {
+                    "date": 1628075842830,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,8 +28,10 @@\n         'created_at',\n         'updated_at',\n     ];\n \n+    protected $appends = ['video'];\n+\n     public function comments()\n     {\n         return $this->hasMany(VoxoMediaComment::class, 'voxo_media_id');\n     }\n@@ -42,5 +44,9 @@\n     public function users()\n     {\n         return $this->belongsTo(User::class, 'user_id', 'id');\n     }\n+\n+    public function getVideoAttribue(){\n+\n+    }\n }\n"
+                },
+                {
+                    "date": 1628075879514,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,7 +46,7 @@\n         return $this->belongsTo(User::class, 'user_id', 'id');\n     }\n \n     public function getVideoAttribue(){\n-\n+        return env('APP_URL').'/storage/app/public/voxo/'.$this->video;\n     }\n }\n"
+                },
+                {
+                    "date": 1628075938410,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,8 +45,8 @@\n     {\n         return $this->belongsTo(User::class, 'user_id', 'id');\n     }\n \n-    public function getVideoAttribue(){\n+    public function getVideoAttribute(){\n         return env('APP_URL').'/storage/app/public/voxo/'.$this->video;\n     }\n }\n"
+                },
+                {
+                    "date": 1628077301420,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,5 @@\n     public function users()\n     {\n         return $this->belongsTo(User::class, 'user_id', 'id');\n     }\n-\n-    public function getVideoAttribute(){\n-        return env('APP_URL').'/storage/app/public/voxo/'.$this->video;\n-    }\n }\n"
+                },
+                {
+                    "date": 1628077328757,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,10 +28,8 @@\n         'created_at',\n         'updated_at',\n     ];\n \n-    protected $appends = ['video'];\n-\n     public function comments()\n     {\n         return $this->hasMany(VoxoMediaComment::class, 'voxo_media_id');\n     }\n"
+                },
+                {
+                    "date": 1628776410644,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,5 +42,9 @@\n     public function users()\n     {\n         return $this->belongsTo(User::class, 'user_id', 'id');\n     }\n+\n+    public function getVideoAttribute(){\n+        \n+    }\n }\n"
+                },
+                {
+                    "date": 1628776436665,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,8 +28,10 @@\n         'created_at',\n         'updated_at',\n     ];\n \n+    protected $appends = ['video'];\n+\n     public function comments()\n     {\n         return $this->hasMany(VoxoMediaComment::class, 'voxo_media_id');\n     }\n@@ -44,7 +46,7 @@\n         return $this->belongsTo(User::class, 'user_id', 'id');\n     }\n \n     public function getVideoAttribute(){\n-        \n+\n     }\n }\n"
+                },
+                {
+                    "date": 1628776461492,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,7 +46,7 @@\n         return $this->belongsTo(User::class, 'user_id', 'id');\n     }\n \n     public function getVideoAttribute(){\n-\n+        return env('APP_URL').'/storage/app/public/voxo/'.$this->video;\n     }\n }\n"
+                },
+                {
+                    "date": 1628776583478,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,8 +45,8 @@\n     {\n         return $this->belongsTo(User::class, 'user_id', 'id');\n     }\n \n-    public function getVideoAttribute(){\n-        return env('APP_URL').'/storage/app/public/voxo/'.$this->video;\n+    public function getVideoAttribute($value){\n+        return env('APP_URL').'/storage/app/public/voxo/'.$value;\n     }\n }\n"
+                },
+                {
+                    "date": 1628776810406,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,8 +45,8 @@\n     {\n         return $this->belongsTo(User::class, 'user_id', 'id');\n     }\n \n-    public function getVideoAttribute($value){\n-        return env('APP_URL').'/storage/app/public/voxo/'.$value;\n+    public function getVideoAttribute(){\n+        return env('APP_URL').'/storage/app/public/voxo/'.$this->video;\n     }\n }\n"
+                },
+                {
+                    "date": 1628776939436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,7 +46,7 @@\n         return $this->belongsTo(User::class, 'user_id', 'id');\n     }\n \n     public function getVideoAttribute(){\n-        return env('APP_URL').'/storage/app/public/voxo/'.$this->video;\n+        return env('APP_URL').'/storage/app/public/voxo/'.$this->attributes['video'];\n     }\n }\n"
+                },
+                {
+                    "date": 1628779126851,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,8 +28,12 @@\n         'created_at',\n         'updated_at',\n     ];\n \n+    protected $hidden = [\n+        'id', 'user_id', 'voxo_media_id', 'type', 'created_at', 'updated_at'\n+    ];\n+    \n     protected $appends = ['video'];\n \n     public function comments()\n     {\n"
+                }
+            ],
+            "date": 1628074936860,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Models;\n\nuse Laravel\\Passport\\HasApiTokens;\nuse Illuminate\\Notifications\\Notifiable;\nuse App\\Models\\Auth\\Traits\\Access\\UserAccess;\nuse App\\Models\\Auth\\Traits\\Scopes\\UserScopes;\nuse Illuminate\\Database\\Eloquent\\SoftDeletes;\nuse App\\Models\\Auth\\Traits\\Methods\\UserMethods;\nuse App\\Models\\Auth\\Traits\\Attributes\\UserAttributes;\nuse App\\Models\\Auth\\Traits\\Relationships\\UserRelationships;\nuse App\\Models\\VoxoMediaComment;\nuse App\\Models\\VoxoMediaLike;\n\n/**\n * Class User.\n */\nclass VoxoMedias extends BaseModel\n{\n/**\n     * Dates.\n     *\n     * @var array\n     */\n    protected $dates = [\n        'created_at',\n        'updated_at',\n    ];\n\n    public function comments()\n    {\n        return $this->hasMany(VoxoMediaComment::class);\n    }\n\n    public function likes()\n    {\n        return $this->hasMany(VoxoMediaLike::class);\n    }\n}\n"
+        }
+    ]
+}

@@ -1,0 +1,230 @@
+{
+    "sourceFile": "css/custom.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 53,
+            "patches": [
+                {
+                    "date": 1628238962799,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1628239031104,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -237,5 +237,8 @@\n }\n .voyager .side-menu.sidebar-inverse .navbar li > a:hover {\n \tcolor: #000;\n \tbackground: #FFFFFF;\n+}\n+.voyager .navbar.navbar-default .navbar-nav > li:hover > a, .voyager .navbar .navbar-nav > li:hover > a {\n+\tcolor: #FFF;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1628239056734,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -238,7 +238,4 @@\n .voyager .side-menu.sidebar-inverse .navbar li > a:hover {\n \tcolor: #000;\n \tbackground: #FFFFFF;\n }\n-.voyager .navbar.navbar-default .navbar-nav > li:hover > a, .voyager .navbar .navbar-nav > li:hover > a {\n-\tcolor: #FFF;\n-}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1628239081645,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -238,4 +238,8 @@\n .voyager .side-menu.sidebar-inverse .navbar li > a:hover {\n \tcolor: #000;\n \tbackground: #FFFFFF;\n }\n+.voyager .side-menu .navbar-header {\n+\tbackground: #007BFF;\n+\tborder-color: #007BFF;\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1628239132409,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -241,5 +241,8 @@\n }\n .voyager .side-menu .navbar-header {\n \tbackground: #007BFF;\n \tborder-color: #007BFF;\n+}\n+table.dataTable tbody tr.even{\n+\tbackground-color: #eaeaea;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1628239150118,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -243,6 +243,6 @@\n \tbackground: #007BFF;\n \tborder-color: #007BFF;\n }\n table.dataTable tbody tr.even{\n-\tbackground-color: #eaeaea;\n+\tbackground-color: #f9f9f9;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629101241685,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -244,5 +244,10 @@\n \tborder-color: #007BFF;\n }\n table.dataTable tbody tr.even{\n \tbackground-color: #f9f9f9;\n+}\n+.voyager .side-menu.sidebar-inverse .navbar li.active > a {\n+\tcolor: #000;\n+\tbackground: #FFFFFF;\n+\tborder-left: 0;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629119545570,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -249,5 +249,14 @@\n .voyager .side-menu.sidebar-inverse .navbar li.active > a {\n \tcolor: #000;\n \tbackground: #FFFFFF;\n \tborder-left: 0;\n+}\n+.bg-primary {\n+\tbackground-color: #5e72e4 !important;\n+}\n+.pb-6, .py-6 {\n+\tpadding-bottom: 4.5rem !important;\n+}\n+.header {\n+\tposition: relative;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629119649809,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -250,13 +250,12 @@\n \tcolor: #000;\n \tbackground: #FFFFFF;\n \tborder-left: 0;\n }\n-.bg-primary {\n-\tbackground-color: #5e72e4 !important;\n-}\n+\n .pb-6, .py-6 {\n \tpadding-bottom: 4.5rem !important;\n }\n .header {\n+\tbackground-color: #5e72e4 !important;\n \tposition: relative;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629119676476,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -250,9 +250,12 @@\n \tcolor: #000;\n \tbackground: #FFFFFF;\n \tborder-left: 0;\n }\n-\n+.app-container.expanded .content-container .navbar-top {\n+\tpadding-left: 250px;\n+\tbackground-color: #5e72e4 !important;\n+}\n .pb-6, .py-6 {\n \tpadding-bottom: 4.5rem !important;\n }\n .header {\n"
+                },
+                {
+                    "date": 1629119802123,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -260,5 +260,9 @@\n }\n .header {\n \tbackground-color: #5e72e4 !important;\n \tposition: relative;\n+}\n+.container-fluid {\n+\tpadding-right: 0px; \n+\t\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629119819384,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -263,6 +263,8 @@\n \tposition: relative;\n }\n .container-fluid {\n \tpadding-right: 0px; \n-\t\n+}\n+.app-container .content-container .side-body.padding-top {\n+\tpadding-top: 61px;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629119843883,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -266,5 +266,8 @@\n \tpadding-right: 0px; \n }\n .app-container .content-container .side-body.padding-top {\n \tpadding-top: 61px;\n+}\n+.app-container .side-body {\n+\tmargin-right: 0px;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629119888872,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -269,5 +269,8 @@\n \tpadding-top: 61px;\n }\n .app-container .side-body {\n \tmargin-right: 0px;\n+}\n+.navbar-right {\n+\tmargin-right: 0px;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629119942690,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -272,5 +272,11 @@\n \tmargin-right: 0px;\n }\n .navbar-right {\n \tmargin-right: 0px;\n+}\n+.hamburger-inner {\n+\tbackground: #fff;\n+}\n+.hamburger-inner::after, .hamburger-inner::before {\n+\tbackground: #fff;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629120169146,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -278,5 +278,87 @@\n \tbackground: #fff;\n }\n .hamburger-inner::after, .hamburger-inner::before {\n \tbackground: #fff;\n+}\n+.card {\n+\tposition: relative;\n+\tdisplay: flex;\n+\tflex-direction: column;\n+\tmin-width: 0;\n+\tword-wrap: break-word;\n+\tborder: 1px solid rgba(0, 0, 0, .05);\n+\tborder-radius: .375rem;\n+\tbackground-color: #fff;\n+\tbackground-clip: border-box;\n+}\n+.card {\n+\tmargin-bottom: 30px;\n+\tborder: 0;\n+\tbox-shadow: 0 0 2rem 0 rgba(136, 152, 170, .15);\n+}\n+.card-body {\n+\tmin-height: 1px;\n+\tpadding: 1.5rem;\n+\tflex: 1 1 auto;\n+}\n+.card-stats .card-body {\n+\tpadding: 1rem 1.5rem;\n+}\n+.mb-0, .my-0 {\n+\tmargin-bottom: 0 !important;\n+}\n+.mt-3, .my-3 {\n+\tmargin-top: 1rem !important;\n+}\n+.text-sm {\n+\tfont-size: .875rem !important;\n+}\n+.col {\n+\tmax-width: 100%;\n+\tflex-basis: 0;\n+\tflex-grow: 1;\n+}\n+.card-title {\n+\tmargin-bottom: 1.25rem;\n+}\n+.text-uppercase {\n+\ttext-transform: uppercase !important;\n+}\n+.text-muted {\n+\tcolor: #8898aa !important;\n+}\n+.font-weight-bold {\n+\tfont-weight: 600 !important;\n+}\n+.col-auto {\n+\twidth: auto;\n+\tmax-width: 100%;\n+\tflex: 0 0 auto;\n+}\n+.shadow {\n+\tbox-shadow: 0 0 2rem 0 rgba(136, 152, 170, .15) !important;\n+}\n+.text-white {\n+\tcolor: #fff !important;\n+}\n+.icon {\n+\twidth: 3rem;\n+\theight: 3rem;\n+}\n+.icon-shape {\n+\tdisplay: inline-flex;\n+\tpadding: 12px;\n+\ttext-align: center;\n+\tborder-radius: 50%;\n+\talign-items: center;\n+\tjustify-content: center;\n+}\n+.bg-gradient-red {\n+\tbackground: linear-gradient(87deg, #f5365c 0, #f56036 100%) !important;\n+}\n+[class*=\"shadow\"] {\n+\ttransition: all .15s ease;\n+}\n+.text-white {\n+\tcolor: #fff !important;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629120471959,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -312,8 +312,14 @@\n }\n .text-sm {\n \tfont-size: .875rem !important;\n }\n+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col, .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto {\n+\tposition: relative;\n+\twidth: 100%;\n+\tpadding-right: 15px;\n+\tpadding-left: 15px;\n+}\n .col {\n \tmax-width: 100%;\n \tflex-basis: 0;\n \tflex-grow: 1;\n"
+                },
+                {
+                    "date": 1629120510462,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -312,8 +312,14 @@\n }\n .text-sm {\n \tfont-size: .875rem !important;\n }\n+.rows {\n+\tdisplay: flex;\n+\tmargin-right: -15px;\n+\tmargin-left: -15px;\n+\tflex-wrap: wrap;\n+}\n .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col, .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto {\n \tposition: relative;\n \twidth: 100%;\n \tpadding-right: 15px;\n"
+                },
+                {
+                    "date": 1629120521664,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -318,19 +318,9 @@\n \tmargin-right: -15px;\n \tmargin-left: -15px;\n \tflex-wrap: wrap;\n }\n-.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col, .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto {\n-\tposition: relative;\n-\twidth: 100%;\n-\tpadding-right: 15px;\n-\tpadding-left: 15px;\n-}\n-.col {\n-\tmax-width: 100%;\n-\tflex-basis: 0;\n-\tflex-grow: 1;\n-}\n+.\n .card-title {\n \tmargin-bottom: 1.25rem;\n }\n .text-uppercase {\n"
+                },
+                {
+                    "date": 1629120530603,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -318,9 +318,14 @@\n \tmargin-right: -15px;\n \tmargin-left: -15px;\n \tflex-wrap: wrap;\n }\n-.\n+\n+.col {\n+\tmax-width: 100%;\n+\tflex-basis: 0;\n+\tflex-grow: 1;\n+}\n .card-title {\n \tmargin-bottom: 1.25rem;\n }\n .text-uppercase {\n"
+                },
+                {
+                    "date": 1629120539150,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -318,9 +318,14 @@\n \tmargin-right: -15px;\n \tmargin-left: -15px;\n \tflex-wrap: wrap;\n }\n-\n+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col, .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto {\n+\tposition: relative;\n+\twidth: 100%;\n+\tpadding-right: 15px;\n+\tpadding-left: 15px;\n+}\n .col {\n \tmax-width: 100%;\n \tflex-basis: 0;\n \tflex-grow: 1;\n"
+                },
+                {
+                    "date": 1629120546947,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -319,10 +319,8 @@\n \tmargin-left: -15px;\n \tflex-wrap: wrap;\n }\n .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col, .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto {\n-\tposition: relative;\n-\twidth: 100%;\n \tpadding-right: 15px;\n \tpadding-left: 15px;\n }\n .col {\n"
+                },
+                {
+                    "date": 1629120572240,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -335,8 +335,9 @@\n \ttext-transform: uppercase !important;\n }\n .text-muted {\n \tcolor: #8898aa !important;\n+\tfont-size: .8125rem;\n }\n .font-weight-bold {\n \tfont-weight: 600 !important;\n }\n"
+                },
+                {
+                    "date": 1629120592046,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -339,8 +339,9 @@\n \tfont-size: .8125rem;\n }\n .font-weight-bold {\n \tfont-weight: 600 !important;\n+\tfont-size: 1.25rem;\n }\n .col-auto {\n \twidth: auto;\n \tmax-width: 100%;\n"
+                },
+                {
+                    "date": 1629120661359,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -336,8 +336,9 @@\n }\n .text-muted {\n \tcolor: #8898aa !important;\n \tfont-size: .8125rem;\n+\tmargin-bottom: 10px;;\n }\n .font-weight-bold {\n \tfont-weight: 600 !important;\n \tfont-size: 1.25rem;\n"
+                },
+                {
+                    "date": 1629120716750,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -336,13 +336,14 @@\n }\n .text-muted {\n \tcolor: #8898aa !important;\n \tfont-size: .8125rem;\n-\tmargin-bottom: 10px;;\n+\tdisplay: block;\n }\n .font-weight-bold {\n \tfont-weight: 600 !important;\n \tfont-size: 1.25rem;\n+\tdisplay: block;\n }\n .col-auto {\n \twidth: auto;\n \tmax-width: 100%;\n"
+                },
+                {
+                    "date": 1629120741486,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -342,8 +342,9 @@\n .font-weight-bold {\n \tfont-weight: 600 !important;\n \tfont-size: 1.25rem;\n \tdisplay: block;\n+\tmargin-top: 8px;\n }\n .col-auto {\n \twidth: auto;\n \tmax-width: 100%;\n"
+                },
+                {
+                    "date": 1629120781682,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -370,8 +370,17 @@\n }\n .bg-gradient-red {\n \tbackground: linear-gradient(87deg, #f5365c 0, #f56036 100%) !important;\n }\n+.bg-gradient-orange {\n+\tbackground: linear-gradient(87deg, #fb6340 0, #fbb140 100%) !important;\n+}\n+.bg-gradient-green {\n+\tbackground: linear-gradient(87deg, #2dce89 0, #2dcecc 100%) !important;\n+}\n+.bg-gradient-info {\n+\tbackground: linear-gradient(87deg, #11cdef 0, #1171ef 100%) !important;\n+}\n [class*=\"shadow\"] {\n \ttransition: all .15s ease;\n }\n .text-white {\n"
+                },
+                {
+                    "date": 1629121541979,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -337,8 +337,9 @@\n .text-muted {\n \tcolor: #8898aa !important;\n \tfont-size: .8125rem;\n \tdisplay: block;\n+\tmargin-top: 0;\n }\n .font-weight-bold {\n \tfont-weight: 600 !important;\n \tfont-size: 1.25rem;\n"
+                },
+                {
+                    "date": 1629121756704,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -229,9 +229,9 @@\n \tmargin: 0;\n \tline-height: 1;\n }\n .voyager .side-menu.sidebar-inverse{\n-\tbackground: #007BFF;\n+\tbackground: #f8f9fe;\n }\n .voyager .side-menu.sidebar-inverse .navbar li > a {\n \tcolor: #FFFFFF;\n }\n@@ -246,9 +246,9 @@\n table.dataTable tbody tr.even{\n \tbackground-color: #f9f9f9;\n }\n .voyager .side-menu.sidebar-inverse .navbar li.active > a {\n-\tcolor: #000;\n+\tcolor: #525f7f;\n \tbackground: #FFFFFF;\n \tborder-left: 0;\n }\n .app-container.expanded .content-container .navbar-top {\n"
+                },
+                {
+                    "date": 1629121803649,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -239,10 +239,10 @@\n \tcolor: #000;\n \tbackground: #FFFFFF;\n }\n .voyager .side-menu .navbar-header {\n-\tbackground: #007BFF;\n-\tborder-color: #007BFF;\n+\tbackground: #f8f9fe;\n+\tborder-color: #f8f9fe;\n }\n table.dataTable tbody tr.even{\n \tbackground-color: #f9f9f9;\n }\n"
+                },
+                {
+                    "date": 1629121826040,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -232,9 +232,9 @@\n .voyager .side-menu.sidebar-inverse{\n \tbackground: #f8f9fe;\n }\n .voyager .side-menu.sidebar-inverse .navbar li > a {\n-\tcolor: #FFFFFF;\n+\tcolor: #525f7f;\n }\n .voyager .side-menu.sidebar-inverse .navbar li > a:hover {\n \tcolor: #000;\n \tbackground: #FFFFFF;\n"
+                },
+                {
+                    "date": 1629121855031,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -247,9 +247,9 @@\n \tbackground-color: #f9f9f9;\n }\n .voyager .side-menu.sidebar-inverse .navbar li.active > a {\n \tcolor: #525f7f;\n-\tbackground: #FFFFFF;\n+\tbackground: #f6f9fc;\n \tborder-left: 0;\n }\n .app-container.expanded .content-container .navbar-top {\n \tpadding-left: 250px;\n"
+                },
+                {
+                    "date": 1629121917894,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -236,9 +236,9 @@\n \tcolor: #525f7f;\n }\n .voyager .side-menu.sidebar-inverse .navbar li > a:hover {\n \tcolor: #000;\n-\tbackground: #FFFFFF;\n+\tbackground: #f6f9fc;\n }\n .voyager .side-menu .navbar-header {\n \tbackground: #f8f9fe;\n \tborder-color: #f8f9fe;\n@@ -250,8 +250,11 @@\n \tcolor: #525f7f;\n \tbackground: #f6f9fc;\n \tborder-left: 0;\n }\n+.voyager .navbar.navbar-default .navbar-header .navbar-brand, .voyager .navbar .navbar-header .navbar-brand {\n+\tcolor: #525f7f;\n+}\n .app-container.expanded .content-container .navbar-top {\n \tpadding-left: 250px;\n \tbackground-color: #5e72e4 !important;\n }\n"
+                },
+                {
+                    "date": 1629121973812,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -235,10 +235,10 @@\n .voyager .side-menu.sidebar-inverse .navbar li > a {\n \tcolor: #525f7f;\n }\n .voyager .side-menu.sidebar-inverse .navbar li > a:hover {\n-\tcolor: #000;\n-\tbackground: #f6f9fc;\n+\tcolor: #fff;\n+background: #5E72E4;\n }\n .voyager .side-menu .navbar-header {\n \tbackground: #f8f9fe;\n \tborder-color: #f8f9fe;\n@@ -246,10 +246,10 @@\n table.dataTable tbody tr.even{\n \tbackground-color: #f9f9f9;\n }\n .voyager .side-menu.sidebar-inverse .navbar li.active > a {\n-\tcolor: #525f7f;\n-\tbackground: #f6f9fc;\n+\tcolor: #fff;\n+\tbackground: #5E72E4;\n \tborder-left: 0;\n }\n .voyager .navbar.navbar-default .navbar-header .navbar-brand, .voyager .navbar .navbar-header .navbar-brand {\n \tcolor: #525f7f;\n"
+                },
+                {
+                    "date": 1629122289877,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -264,9 +264,9 @@\n .header {\n \tbackground-color: #5e72e4 !important;\n \tposition: relative;\n }\n-.container-fluid {\n+.container-fluid.dashboard {\n \tpadding-right: 0px; \n }\n .app-container .content-container .side-body.padding-top {\n \tpadding-top: 61px;\n"
+                },
+                {
+                    "date": 1629122412281,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -388,5 +388,8 @@\n \ttransition: all .15s ease;\n }\n .text-white {\n \tcolor: #fff !important;\n+}\n+.bg-default {\n+\tbackground-color: #172b4d !important;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629122437268,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -391,5 +391,8 @@\n \tcolor: #fff !important;\n }\n .bg-default {\n \tbackground-color: #172b4d !important;\n+}\n+.mt--6, .my--6 {\n+\tmargin-top: -4.5rem !important;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629122489131,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -394,5 +394,17 @@\n \tbackground-color: #172b4d !important;\n }\n .mt--6, .my--6 {\n \tmargin-top: -4.5rem !important;\n+}\n+.card-header {\n+\tmargin-bottom: 0;\n+\tpadding: 1.25rem 1.5rem;\n+\tborder-bottom: 1px solid rgba(0, 0, 0, .05);\n+\tbackground-color: #fff;\n+}\n+.bg-transparent {\n+\tbackground-color: transparent !important;\n+}\n+.card-header:first-child {\n+\tborder-radius: calc(.375rem - 1px) calc(.375rem - 1px) 0 0;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629122498830,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -406,5 +406,5 @@\n \tbackground-color: transparent !important;\n }\n .card-header:first-child {\n \tborder-radius: calc(.375rem - 1px) calc(.375rem - 1px) 0 0;\n-}\n\\ No newline at end of file\n+}\n"
+                },
+                {
+                    "date": 1629122524507,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -407,4 +407,13 @@\n }\n .card-header:first-child {\n \tborder-radius: calc(.375rem - 1px) calc(.375rem - 1px) 0 0;\n }\n+.align-items-center {\n+\talign-items: center !important;\n+}\n+.ls-1 {\n+\tletter-spacing: .0625rem;\n+}\n+.text-light {\n+\tcolor: #ced4da !important;\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629122542038,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -415,5 +415,8 @@\n \tletter-spacing: .0625rem;\n }\n .text-light {\n \tcolor: #ced4da !important;\n+}\n+h3, .h3 {\n+\tfont-size: 1.0625rem;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629122562367,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -416,7 +416,14 @@\n }\n .text-light {\n \tcolor: #ced4da !important;\n }\n-h3, .h3 {\n+.h3 {\n \tfont-size: 1.0625rem;\n+}\n+.nav {\n+\tdisplay: flex;\n+\tmargin-bottom: 0;\n+\tpadding-left: 0;\n+\tlist-style: none;\n+\tflex-wrap: wrap;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629122568862,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -425,5 +425,7 @@\n \tmargin-bottom: 0;\n \tpadding-left: 0;\n \tlist-style: none;\n \tflex-wrap: wrap;\n+}\n+element {\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629122589429,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -426,6 +426,10 @@\n \tpadding-left: 0;\n \tlist-style: none;\n \tflex-wrap: wrap;\n }\n-element {\n+.justify-content-end {\n+\tjustify-content: flex-end !important;\n+}\n+.nav-pills .nav-item:not(:last-child) {\n+\tpadding-right: 1rem;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629122599715,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -429,7 +429,10 @@\n }\n .justify-content-end {\n \tjustify-content: flex-end !important;\n }\n+.mr-md-0, .mx-md-0 {\n+\tmargin-right: 0 !important;\n+}\n .nav-pills .nav-item:not(:last-child) {\n \tpadding-right: 1rem;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629122657075,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -434,5 +434,33 @@\n \tmargin-right: 0 !important;\n }\n .nav-pills .nav-item:not(:last-child) {\n \tpadding-right: 1rem;\n-}\n\\ No newline at end of file\n+}\n+.pt-2, .py-2 {\n+\tpadding-top: .5rem !important;\n+}\n+.pb-2, .py-2 {\n+\tpadding-bottom: .5rem !important;\n+}\n+.pr-3, .px-3 {\n+\tpadding-right: 1rem !important;\n+}\n+.pl-3, .px-3 {\n+\tpadding-left: 1rem !important;\n+}\n+.nav-pills .nav-link {\n+\tborder-radius: .375rem;\n+}\n+.nav-pills .nav-link {\n+\tfont-size: .875rem;\n+\tfont-weight: 500;\n+\tpadding: .75rem 1rem;\n+\ttransition: all .15s ease;\n+\tcolor: #5e72e4;\n+\tbackground-color: #fff;\n+\tbox-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);\n+}\n+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {\n+\tcolor: #fff;\n+\tbackground-color: #5e72e4;\n+}\n"
+                },
+                {
+                    "date": 1629122710785,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -463,4 +463,14 @@\n .nav-pills .nav-link.active, .nav-pills .show > .nav-link {\n \tcolor: #fff;\n \tbackground-color: #5e72e4;\n }\n+.d-md-block {\n+\tdisplay: block !important;\n+}\n+.d-md-none {\n+\tdisplay: none !important;\n+}\n+.chart {\n+\tposition: relative;\n+\theight: 350px;\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629131819650,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -265,9 +265,9 @@\n \tbackground-color: #5e72e4 !important;\n \tposition: relative;\n }\n .container-fluid.dashboard {\n-\tpadding-right: 0px; \n+\t\n }\n .app-container .content-container .side-body.padding-top {\n \tpadding-top: 61px;\n }\n"
+                },
+                {
+                    "date": 1629133196948,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -472,5 +472,8 @@\n }\n .chart {\n \tposition: relative;\n \theight: 350px;\n+}\n+.app-container .side-body .container-fluid {\n+\tpadding-right: 15px;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629133296654,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -475,5 +475,12 @@\n \theight: 350px;\n }\n .app-container .side-body .container-fluid {\n \tpadding-right: 15px;\n+}\n+\n+.app-container {\n+\tmin-height: 100%;\n+\tposition: relative;\n+\tbackground: #f8f9fe;\n+\tpadding-bottom: 30px;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1629133345222,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -229,9 +229,9 @@\n \tmargin: 0;\n \tline-height: 1;\n }\n .voyager .side-menu.sidebar-inverse{\n-\tbackground: #f8f9fe;\n+\tbackground: #ffffff;\n }\n .voyager .side-menu.sidebar-inverse .navbar li > a {\n \tcolor: #525f7f;\n }\n"
+                },
+                {
+                    "date": 1629135154968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -309,8 +309,11 @@\n }\n .mb-0, .my-0 {\n \tmargin-bottom: 0 !important;\n }\n+.mt-0{\n+\tmargin-top: 0 !important;\n+}\n .mt-3, .my-3 {\n \tmargin-top: 1rem !important;\n }\n .text-sm {\n"
+                },
+                {
+                    "date": 1629135180786,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -485,5 +485,12 @@\n \tmin-height: 100%;\n \tposition: relative;\n \tbackground: #f8f9fe;\n \tpadding-bottom: 30px;\n+}\n+.h1, .h2, .h3, .h4, .h5, .h6 {\n+\tfont-family: inherit;\n+\tfont-weight: 600;\n+\t/* line-height: 1.5; */\n+\tmargin-bottom: .5rem;\n+\tcolor: #32325d;\n }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1628238962799,
+            "name": "Commit-0",
+            "content": "body {\n\tfont-weight: 500;\n}\n.table {\n\tcolor: #000;\n}\n.driverForm .form-group {max-height: 61px; margin-top: 6px;}\n.datepicker { z-index: 999 !important;}\n.btn-link, .checkbox-inline, .checkbox label, .radio-inline, .radio label, label { font-weight: 500 !important; color: #000000 !important; }\n.form-control {color: #495057 !important; font-weight: 500; }\n.voyager input[type=\"file\"] {padding: 0px !important; }\n.input-group-append, .input-group-prepend {display: flex;}\n.input-group {\n\tposition: relative;\n\tdisplay: flex;\n\tflex-wrap: wrap;\n\talign-items: stretch;\n\twidth: 100%;\n}\n.input-group-text {\n\tdisplay: flex;\n\talign-items: center;\n\tpadding: .375rem .75rem;\n\tmargin-bottom: 0;\n\tfont-size: 1rem;\n\tfont-weight: 400;\n\tline-height: 1.5;\n\tcolor: #495057;\n\ttext-align: center;\n\twhite-space: nowrap;\n\tbackground-color: #e9ecef;\n\tborder: 1px solid #ced4da;\n\tborder-radius: .25rem;\n}\n.input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle), .input-group > .input-group-append:last-child > .input-group-text:not(:last-child), .input-group > .input-group-append:not(:last-child) > .btn, .input-group > .input-group-append:not(:last-child) > .input-group-text, .input-group > .input-group-prepend > .btn, .input-group > .input-group-prepend > .input-group-text {\n\tborder-top-right-radius: 0;\n\tborder-bottom-right-radius: 0;\n}\n.status, .view, .assignDeliverMan, .buttonML {\n    margin-left: 5px;\n    cursor: pointer;\n}\n.customtoggle .switch {\n\tposition: absolute;\n\tdisplay: inline-block;\n\twidth: 61px;\n\theight: 32px;\n}\n.customtoggle .form-group label {\n\tfont-size: 10px;\n\tmargin-bottom: 1px;\n}\n.customtoggle .toggle_bx .switch {\n\twidth: 70px;\n\tposition: relative;\n}\n.switch input {\n\tdisplay: none;\n}\n.slider {\n\tcursor: pointer;\n}\n.slider {\n\tposition: absolute;\n\tcursor: pointer;\n\ttop: 0;\n\tleft: 0;\n\tright: 0;\n\tbottom: 0;\n\tbackground-color: #ca2222;\n\t-webkit-transition: .4s;\n\ttransition: .4s;\n\tborder-radius: 34px;\n}\n.customtoggle .toggle_bx .switch .slider {\n\tmargin-left: 0;\n}\n.slider::before {\n\tposition: absolute;\n\tcontent: \"\";\n\theight: 26px;\n\twidth: 26px;\n\tleft: 5px;\n\tbottom: 4px;\n\tbackground-color: white;\n\t-webkit-transition: .4s;\n\ttransition: .4s;\n\tborder-radius: 50%;\n}\n.customtoggle .slider::before {\n\theight: 29px;\n\twidth: 29px;\n\tleft: 1px;\n\tbottom: 2px;\n}\n.slider::after {\n\tcontent: 'NO';\n\tcolor: white;\n\tdisplay: block;\n\tposition: absolute;\n\ttransform: translate(-50%,-50%);\n\ttop: 50%;\n\tleft: 50%;\n\tfont-size: 10px;\n\tfont-family: Verdana, sans-serif;\n}\n.customtoggle .slider::after {\n\ttop: 50%;\n\tleft: 61%;\n\tfont-size: 9px;\n\tfont-weight: bold;\n}\ninput:checked + .slider {\n\tbackground-color: #2ab934;\n}\ninput:checked + .slider::before {\n\t-webkit-transform: translateX(26px);\n\t-ms-transform: translateX(26px);\n\ttransform: translateX(55px);\n}\ninput:checked + .extratoggle.slider::before {\n\tleft: -15px;\n}\ninput:checked + .slider::after {\n\tcontent: 'YES';\n}\ninput:checked + .extratoggle.slider::after {\n\tleft: 35%;\n}\n\n.content {\n\tmin-height: 250px;\n\tpadding: 15px;\n\tmargin-right: auto;\n\tmargin-left: auto;\n\tpadding-left: 15px;\n\tpadding-right: 15px;\n}\n.small-box {\n\tborder-radius: 2px;\n\tposition: relative;\n\tdisplay: block;\n\tmargin-bottom: 20px;\n\tbox-shadow: 0 1px 1px rgba(0,0,0,0.1);\n\tcolor: #ffffff;\n}\n.bg-yellow, .callout.callout-warning, .alert-warning, .label-warning, .modal-warning .modal-body {\n\tbackground-color: #f39c12 !important;\n\t\n}\n.bg-green, .callout.callout-success, .alert-success, .label-success, .modal-success .modal-body {\n\tbackground-color: #00a65a !important;\n}\n.bg-teal {\n\tbackground-color: #39cccc !important;\n}\n.bg-purple {\n\tbackground-color: #605ca8 !important;\n}\n.bg-aqua, .callout.callout-info, .alert-info, .label-info, .modal-info .modal-body {\n\tbackground-color: #00c0ef !important;\n}\n.bg-red, .callout.callout-danger, .alert-danger, .alert-error, .label-danger, .modal-danger .modal-body {\n\tbackground-color: #dd4b39 !important;\n}\n.small-box > .inner {\n\tpadding: 10px;\n}\n.small-box h3 {\n\tfont-size: 38px;\n\tfont-weight: bold;\n\tmargin: 0 0 10px 0;\n\twhite-space: nowrap;\n\tpadding: 0;\n}\n.small-box p {\n\tfont-size: 15px;\n}\n.small-box .icon {\n\t-webkit-transition: all .3s linear;\n\t-o-transition: all .3s linear;\n\ttransition: all .3s linear;\n\tposition: absolute;\n\ttop: -10px;\n\tright: 10px;\n\tz-index: 0;\n\tfont-size: 90px;\n\tcolor: rgba(0,0,0,0.15);\n}\n.small-box .icon {\n\tfont-size: 75px;\n\tcolor: rgba(0,0,0,0.15);\n}\n.small-box > .small-box-footer {\n\tposition: relative;\n\ttext-align: center;\n\tpadding: 3px 0;\n\tcolor: #fff;\n\tcolor: rgba(255,255,255,0.8);\n\tdisplay: block;\n\tz-index: 10;\n\tbackground: rgba(0,0,0,0.1);\n\ttext-decoration: none;\n}\n.box {\n\tposition: relative;\n\tborder-radius: 3px;\n\tbackground: #ffffff;\n\tborder-top: 3px solid #d2d6de;\n\tmargin-bottom: 20px;\n\twidth: 100%;\n\tbox-shadow: 0 1px 1px rgba(0,0,0,0.1);\n}\n.box.box-info {\n\tborder-top-color: #00c0ef;\n}\n.box-header {\n\tcolor: #444;\n\tdisplay: block;\n\tpadding: 10px;\n\tposition: relative;\n}\n.box-header.with-border {\n\tborder-bottom: 1px solid #f4f4f4;\n}\n.box-header > .fa, .box-header > .glyphicon, .box-header > .ion, .box-header .box-title {\n\tdisplay: inline-block;\n\tfont-size: 18px;\n\tmargin: 0;\n\tline-height: 1;\n}\n.voyager .side-menu.sidebar-inverse{\n\tbackground: #007BFF;\n}\n.voyager .side-menu.sidebar-inverse .navbar li > a {\n\tcolor: #FFFFFF;\n}\n.voyager .side-menu.sidebar-inverse .navbar li > a:hover {\n\tcolor: #000;\n\tbackground: #FFFFFF;\n}"
+        }
+    ]
+}

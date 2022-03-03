@@ -1,0 +1,38 @@
+{
+    "sourceFile": "app/Models/UserFollower.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1628096640329,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1628097955922,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,7 +27,10 @@\n        \n     ];\n     protected $table = 'user_follow';\n \n-   \n+    public function users()\n+    {\n+        return $this->belongsTo(User::class, 'user_id', 'id');\n+    }\n     \n }\n"
+                },
+                {
+                    "date": 1628098005406,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,8 +29,8 @@\n     protected $table = 'user_follow';\n \n     public function users()\n     {\n-        return $this->belongsTo(User::class, 'user_id', 'id');\n+        return $this->belongsTo(App\\User::class, 'user_id', 'id');\n     }\n     \n }\n"
+                },
+                {
+                    "date": 1628098012558,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,8 +29,8 @@\n     protected $table = 'user_follow';\n \n     public function users()\n     {\n-        return $this->belongsTo(App\\User::class, 'user_id', 'id');\n+        return $this->belongsTo(App/User::class, 'user_id', 'id');\n     }\n     \n }\n"
+                },
+                {
+                    "date": 1628098027266,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n use Illuminate\\Database\\Eloquent\\SoftDeletes;\n use App\\Models\\Auth\\Traits\\Methods\\UserMethods;\n use App\\Models\\Auth\\Traits\\Attributes\\UserAttributes;\n use App\\Models\\Auth\\Traits\\Relationships\\UserRelationships;\n-\n+use App\\User;\n /**\n  * Class User.\n  */\n class UserFollower extends BaseModel\n@@ -29,8 +29,8 @@\n     protected $table = 'user_follow';\n \n     public function users()\n     {\n-        return $this->belongsTo(App/User::class, 'user_id', 'id');\n+        return $this->belongsTo(User::class, 'user_id', 'id');\n     }\n     \n }\n"
+                },
+                {
+                    "date": 1628098042721,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,11 +26,6 @@\n         'follower_id'\n        \n     ];\n     protected $table = 'user_follow';\n-\n-    public function users()\n-    {\n-        return $this->belongsTo(User::class, 'user_id', 'id');\n-    }\n     \n }\n"
+                }
+            ],
+            "date": 1628096640329,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Models;\n\nuse Laravel\\Passport\\HasApiTokens;\nuse Illuminate\\Notifications\\Notifiable;\nuse App\\Models\\Auth\\Traits\\Access\\UserAccess;\nuse App\\Models\\Auth\\Traits\\Scopes\\UserScopes;\nuse Illuminate\\Database\\Eloquent\\SoftDeletes;\nuse App\\Models\\Auth\\Traits\\Methods\\UserMethods;\nuse App\\Models\\Auth\\Traits\\Attributes\\UserAttributes;\nuse App\\Models\\Auth\\Traits\\Relationships\\UserRelationships;\n\n/**\n * Class User.\n */\nclass UserFollower extends BaseModel\n{\n    /**\n     * Fillable.\n     *\n     * @var array\n     */\n    protected $fillable = [\n        'following_id',\n        'follower_id'\n       \n    ];\n    protected $table = 'user_follow';\n\n   \n    \n}\n"
+        }
+    ]
+}

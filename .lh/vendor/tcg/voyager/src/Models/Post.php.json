@@ -1,0 +1,30 @@
+{
+    "sourceFile": "vendor/tcg/voyager/src/Models/Post.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1629393981005,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1629394321478,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,7 +60,7 @@\n      * @return \\Illuminate\\Database\\Eloquent\\Relations\\HasOne\n      */\n     public function postMedia()\n     {\n-        return $this->belongsTo(PostsMedia::class, 'id', 'voxo_media_id');\n+        return $this->hasMany(PostsMedia::class, 'id', 'voxo_media_id');\n     }\n }\n"
+                },
+                {
+                    "date": 1629394330743,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,7 +60,7 @@\n      * @return \\Illuminate\\Database\\Eloquent\\Relations\\HasOne\n      */\n     public function postMedia()\n     {\n-        return $this->hasMany(PostsMedia::class, 'id', 'voxo_media_id');\n+        return $this->hasMany(PostsMedia::class, 'voxo_media_id');\n     }\n }\n"
+                },
+                {
+                    "date": 1629469401000,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n use TCG\\Voyager\\Facades\\Voyager;\n use TCG\\Voyager\\Traits\\Resizable;\n use TCG\\Voyager\\Traits\\Translatable;\n use App\\Models\\PostsMedia;\n+use App\\Models\\PostReport;\n \n class Post extends Model\n {\n     use Translatable;\n@@ -62,5 +63,13 @@\n     public function postMedia()\n     {\n         return $this->hasMany(PostsMedia::class, 'voxo_media_id');\n     }\n+\n+    /**\n+     * @return \\Illuminate\\Database\\Eloquent\\Relations\\HasOne\n+     */\n+    public function postReport()\n+    {\n+        return $this->hasMany(PostReport::class, 'voxo_media_id');\n+    }\n }\n"
+                }
+            ],
+            "date": 1629393981005,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace TCG\\Voyager\\Models;\n\nuse Illuminate\\Database\\Eloquent\\Builder;\nuse Illuminate\\Database\\Eloquent\\Model;\nuse Illuminate\\Support\\Facades\\Auth;\nuse TCG\\Voyager\\Facades\\Voyager;\nuse TCG\\Voyager\\Traits\\Resizable;\nuse TCG\\Voyager\\Traits\\Translatable;\nuse App\\Models\\PostsMedia;\n\nclass Post extends Model\n{\n    use Translatable;\n    use Resizable;\n\n    protected $translatable = ['title', 'seo_title', 'excerpt', 'body', 'slug', 'meta_description', 'meta_keywords'];\n\n    public const PUBLISHED = 'PUBLISHED';\n\n    protected $guarded = [];\n\n    public function save(array $options = [])\n    {\n        // If no author has been assigned, assign the current user's id as the author of the post\n        if (!$this->author_id && Auth::user()) {\n            $this->author_id = Auth::user()->getKey();\n        }\n\n        return parent::save();\n    }\n\n    public function authorId()\n    {\n        return $this->belongsTo(Voyager::modelClass('User'), 'author_id', 'id');\n    }\n\n    /**\n     * Scope a query to only published scopes.\n     *\n     * @param \\Illuminate\\Database\\Eloquent\\Builder $query\n     *\n     * @return \\Illuminate\\Database\\Eloquent\\Builder\n     */\n    public function scopePublished(Builder $query)\n    {\n        return $query->where('status', '=', static::PUBLISHED);\n    }\n\n    /**\n     * @return \\Illuminate\\Database\\Eloquent\\Relations\\HasOne\n     */\n    public function category()\n    {\n        return $this->belongsTo(Voyager::modelClass('Category'));\n    }\n\n    /**\n     * @return \\Illuminate\\Database\\Eloquent\\Relations\\HasOne\n     */\n    public function postMedia()\n    {\n        return $this->belongsTo(PostsMedia::class, 'id', 'voxo_media_id');\n    }\n}\n"
+        }
+    ]
+}

@@ -1,0 +1,82 @@
+{
+    "sourceFile": "app/User.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 16,
+            "patches": [
+                {
+                    "date": 1627650155746,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1627972906105,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n     protected $casts = [\n         'email_verified_at' => 'datetime',\n     ];\n \n-    protected $appends = ['full','full_name'];\n+    protected $appends = ['full_name'];\n     \n     public function getFullAttribute()\n     {\n         if (!empty($this->avatar)) {\n"
+                },
+                {
+                    "date": 1627973017574,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n     protected $casts = [\n         'email_verified_at' => 'datetime',\n     ];\n \n-    protected $appends = ['full_name'];\n+    protected $appends = ['full_image','thumb_image','full_name'];\n     \n     public function getFullAttribute()\n     {\n         if (!empty($this->avatar)) {\n"
+                },
+                {
+                    "date": 1627973069764,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,8 +52,18 @@\n             return env('APP_URL').'/storage/app/public/users/default.png';\n         }\n     }\n \n+    public function getFullAttribute()\n+    {\n+        if (!empty($this->thumb_avatar)) {\n+            //return Storage::disk('profile_upload')->url($this->image);\n+            return env('APP_URL').'/storage/app/public/users/'.$this->thumb_avatar;\n+        } else {\n+            return env('APP_URL').'/storage/app/public/users/default.png';\n+        }\n+    }\n+\n     /**\n      * @return string\n      */\n     public function getFullNameAttribute()\n"
+                },
+                {
+                    "date": 1627973087040,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n     ];\n \n     protected $appends = ['full_image','thumb_image','full_name'];\n     \n-    public function getFullAttribute()\n+    public function getFullImageAttribute()\n     {\n         if (!empty($this->avatar)) {\n             //return Storage::disk('profile_upload')->url($this->image);\n             return env('APP_URL').'/storage/app/public/users/'.$this->avatar;\n@@ -52,9 +52,9 @@\n             return env('APP_URL').'/storage/app/public/users/default.png';\n         }\n     }\n \n-    public function getFullAttribute()\n+    public function getThumbImageAttribute()\n     {\n         if (!empty($this->thumb_avatar)) {\n             //return Storage::disk('profile_upload')->url($this->image);\n             return env('APP_URL').'/storage/app/public/users/'.$this->thumb_avatar;\n"
+                },
+                {
+                    "date": 1627973102683,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n     public function getFullImageAttribute()\n     {\n         if (!empty($this->avatar)) {\n             //return Storage::disk('profile_upload')->url($this->image);\n-            return env('APP_URL').'/storage/app/public/users/'.$this->avatar;\n+            return env('APP_URL').'/storage/app/public/'.$this->avatar;\n         } else {\n             return env('APP_URL').'/storage/app/public/users/default.png';\n         }\n     }\n"
+                },
+                {
+                    "date": 1627973394704,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n     protected $casts = [\n         'email_verified_at' => 'datetime',\n     ];\n \n-    protected $appends = ['full_image','thumb_image','full_name'];\n+    protected $appends = ['full_image','thumb_image'];\n     \n     public function getFullImageAttribute()\n     {\n         if (!empty($this->avatar)) {\n"
+                },
+                {
+                    "date": 1627973430327,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,11 +10,9 @@\n \n class User extends \\TCG\\Voyager\\Models\\User {\n \n     use Notifiable, HasApiTokens;\n-\n-    public $latitude;\n-    public $longitude;\n+   \n     /**\n      * The attributes that are mass assignable.\n      *\n      * @var array\n"
+                },
+                {
+                    "date": 1627973450196,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,8 +52,9 @@\n     }\n \n     public function getThumbImageAttribute()\n     {\n+        print_r($this->thumb_avatar);die;\n         if (!empty($this->thumb_avatar)) {\n             //return Storage::disk('profile_upload')->url($this->image);\n             return env('APP_URL').'/storage/app/public/users/'.$this->thumb_avatar;\n         } else {\n"
+                },
+                {
+                    "date": 1627973459726,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,9 +52,9 @@\n     }\n \n     public function getThumbImageAttribute()\n     {\n-        print_r($this->thumb_avatar);die;\n+        print_r($this->avatar);die;   \n         if (!empty($this->thumb_avatar)) {\n             //return Storage::disk('profile_upload')->url($this->image);\n             return env('APP_URL').'/storage/app/public/users/'.$this->thumb_avatar;\n         } else {\n"
+                },
+                {
+                    "date": 1627973465282,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,9 +52,9 @@\n     }\n \n     public function getThumbImageAttribute()\n     {\n-        print_r($this->avatar);die;   \n+        print_r($this->thumb_avatar);die;   \n         if (!empty($this->thumb_avatar)) {\n             //return Storage::disk('profile_upload')->url($this->image);\n             return env('APP_URL').'/storage/app/public/users/'.$this->thumb_avatar;\n         } else {\n"
+                },
+                {
+                    "date": 1627973560760,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,9 +52,8 @@\n     }\n \n     public function getThumbImageAttribute()\n     {\n-        print_r($this->thumb_avatar);die;   \n         if (!empty($this->thumb_avatar)) {\n             //return Storage::disk('profile_upload')->url($this->image);\n             return env('APP_URL').'/storage/app/public/users/'.$this->thumb_avatar;\n         } else {\n"
+                },
+                {
+                    "date": 1627973606794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n     public function getThumbImageAttribute()\n     {\n         if (!empty($this->thumb_avatar)) {\n             //return Storage::disk('profile_upload')->url($this->image);\n-            return env('APP_URL').'/storage/app/public/users/'.$this->thumb_avatar;\n+            return env('APP_URL').'/storage/app/public/'.$this->thumb_avatar;\n         } else {\n             return env('APP_URL').'/storage/app/public/users/default.png';\n         }\n     }\n"
+                },
+                {
+                    "date": 1627973723479,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n     public function getThumbImageAttribute()\n     {\n         if (!empty($this->thumb_avatar)) {\n             //return Storage::disk('profile_upload')->url($this->image);\n-            return env('APP_URL').'/storage/app/public/'.$this->thumb_avatar;\n+            return env('APP_URL').'/storage/app/public/users/'.$this->thumb_avatar;\n         } else {\n             return env('APP_URL').'/storage/app/public/users/default.png';\n         }\n     }\n"
+                },
+                {
+                    "date": 1627973729840,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n     public function getThumbImageAttribute()\n     {\n         if (!empty($this->thumb_avatar)) {\n             //return Storage::disk('profile_upload')->url($this->image);\n-            return env('APP_URL').'/storage/app/public/users/'.$this->thumb_avatar;\n+            return env('APP_URL').'/storage/app/public/'.$this->thumb_avatar;\n         } else {\n             return env('APP_URL').'/storage/app/public/users/default.png';\n         }\n     }\n"
+                },
+                {
+                    "date": 1628777001354,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n      *\n      * @var array\n      */\n     protected $hidden = [\n-        'password', 'remember_token',\n+        'password', 'remember_token', 'avatar', 'thumb_avatar'\n     ];\n \n     /**\n      * The attributes that should be cast to native types.\n"
+                },
+                {
+                    "date": 1628777085643,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n      *\n      * @var array\n      */\n     protected $hidden = [\n-        'password', 'remember_token', 'avatar', 'thumb_avatar'\n+        'password', 'remember_token', 'avatar', 'thumb_avatar', 'role_id', 'otp', 'email_verified_at', 'device_token', 'device_type', 'device_id', 'social_id', 'login_type', 'is_login', 'status', 'settings', 'created_at', 'updated_at'\n     ];\n \n     /**\n      * The attributes that should be cast to native types.\n"
+                }
+            ],
+            "date": 1627650155746,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App;\n\nuse Illuminate\\Contracts\\Auth\\MustVerifyEmail;\nuse Illuminate\\Foundation\\Auth\\User as Authenticatable;\nuse Illuminate\\Notifications\\Notifiable;\nuse Laravel\\Passport\\HasApiTokens;\nuse Illuminate\\Support\\Facades\\Storage;\n\nclass User extends \\TCG\\Voyager\\Models\\User {\n\n    use Notifiable, HasApiTokens;\n\n    public $latitude;\n    public $longitude;\n    /**\n     * The attributes that are mass assignable.\n     *\n     * @var array\n     */\n    // protected $fillable = [\n    //     'name', 'phone_number', 'email', 'password', 'device_token', 'device_type', 'otp'\n    // ];\n\n    /**\n     * The attributes that should be hidden for arrays.\n     *\n     * @var array\n     */\n    protected $hidden = [\n        'password', 'remember_token',\n    ];\n\n    /**\n     * The attributes that should be cast to native types.\n     *\n     * @var array\n     */\n    protected $casts = [\n        'email_verified_at' => 'datetime',\n    ];\n\n    protected $appends = ['full','full_name'];\n    \n    public function getFullAttribute()\n    {\n        if (!empty($this->avatar)) {\n            //return Storage::disk('profile_upload')->url($this->image);\n            return env('APP_URL').'/storage/app/public/users/'.$this->avatar;\n        } else {\n            return env('APP_URL').'/storage/app/public/users/default.png';\n        }\n    }\n\n    /**\n     * @return string\n     */\n    public function getFullNameAttribute()\n    {\n        return $this->last_name\n            ? $this->first_name.' '.$this->last_name\n            : $this->first_name;\n    }\n    public function rules($method, $id = 0) {\n        /* $user = User::find($this->users); */\n\n        switch ($method) {\n            case 'GET':\n            case 'DELETE': {\n                    return [];\n                }\n            case 'POST': {\n                    return [\n                        'name' => 'required|regex:/[a-zA-Z\\s]+/|min:3|max:30',\n                        'email' => 'required|email|unique:users,email,null,id,deleted_at,NULL',\n                        'username' => 'required|alpha_num|max:255|unique:users,username,null,id,deleted_at,NULL',\n                        'password' => 'required|string|min:6|confirmed',\n                    ];\n                }\n            case 'PUT':\n            case 'PATCH': {\n                    return [\n                        'name' => 'sometimes|required|regex:/[a-zA-Z\\s]+/|min:3|max:30',\n                        'email' => 'sometimes|required|email|unique:users,email,' . $id . ',id,deleted_at,NULL',\n                        'username' => 'sometimes|required|alpha_num|max:255|unique:users,username,' . $id . ',id,deleted_at,NULL',\n                        'password' => 'sometimes|required|string|min:6|confirmed',\n                       \n                    ];\n                }\n            default:break;\n        }\n    }\n\n    public function messages($method) {\n        /* $user = User::find($this->users); */\n\n        switch ($method) {\n            case 'GET':\n            case 'DELETE': {\n                    return [];\n                }\n            case 'POST': {\n                    return [\n                        'password.confirmed' => 'Password and confirm password doesn\\'t match'\n                    ];\n                }\n            case 'PUT': {\n                    return [\n                        'password.confirmed' => 'Password and confirm password doesn\\'t match'\n                    ];\n                }\n            case 'PATCH': {\n                    return [\n                        'name.required' => 'this fiels is required',\n                        'image.image' => 'please upload a valid image file',\n                        'password.confirmed' => 'Password and confirm password doesn\\'t match'\n                    ];\n                }\n            default:break;\n        }\n    }\n}\n"
+        }
+    ]
+}

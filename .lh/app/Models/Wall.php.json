@@ -1,0 +1,22 @@
+{
+    "sourceFile": "app/Models/Wall.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1629180235535,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1629180258972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,10 @@\n  * Class User.\n  */\n class Wall extends BaseModel\n {\n+\n+    protected $table = 'posts';\n /**\n      * Dates.\n      *\n      * @var array\n"
+                }
+            ],
+            "date": 1629180235535,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Models;\n\nuse Laravel\\Passport\\HasApiTokens;\nuse Illuminate\\Notifications\\Notifiable;\nuse App\\Models\\Auth\\Traits\\Access\\UserAccess;\nuse App\\Models\\Auth\\Traits\\Scopes\\UserScopes;\nuse Illuminate\\Database\\Eloquent\\SoftDeletes;\nuse App\\Models\\Auth\\Traits\\Methods\\UserMethods;\nuse App\\Models\\Auth\\Traits\\Attributes\\UserAttributes;\nuse App\\Models\\Auth\\Traits\\Relationships\\UserRelationships;\nuse App\\User;\n\n/**\n * Class User.\n */\nclass Wall extends BaseModel\n{\n/**\n     * Dates.\n     *\n     * @var array\n     */\n    protected $dates = [\n        'created_at',\n        'updated_at',\n    ];\n}\n"
+        }
+    ]
+}

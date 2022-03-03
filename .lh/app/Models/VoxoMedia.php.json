@@ -1,0 +1,26 @@
+{
+    "sourceFile": "app/Models/VoxoMedia.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1628066743483,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1628073218477,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,6 +15,14 @@\n  * Class User.\n  */\n class VoxoMedia extends BaseModel\n {\n-\n+/**\n+     * Dates.\n+     *\n+     * @var array\n+     */\n+    protected $dates = [\n+        'created_at',\n+        'updated_at',\n+    ];\n }\n"
+                },
+                {
+                    "date": 1628074068117,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n \n /**\n  * Class User.\n  */\n-class VoxoMedia extends BaseModel\n+class VoxoMedias extends BaseModel\n {\n /**\n      * Dates.\n      *\n"
+                }
+            ],
+            "date": 1628066743483,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Models;\n\nuse Laravel\\Passport\\HasApiTokens;\nuse Illuminate\\Notifications\\Notifiable;\nuse App\\Models\\Auth\\Traits\\Access\\UserAccess;\nuse App\\Models\\Auth\\Traits\\Scopes\\UserScopes;\nuse Illuminate\\Database\\Eloquent\\SoftDeletes;\nuse App\\Models\\Auth\\Traits\\Methods\\UserMethods;\nuse App\\Models\\Auth\\Traits\\Attributes\\UserAttributes;\nuse App\\Models\\Auth\\Traits\\Relationships\\UserRelationships;\n\n/**\n * Class User.\n */\nclass VoxoMedia extends BaseModel\n{\n\n}\n"
+        }
+    ]
+}

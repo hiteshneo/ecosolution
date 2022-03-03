@@ -1,0 +1,70 @@
+{
+    "sourceFile": "app/Models/UserSaveMedias.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 13,
+            "patches": [
+                {
+                    "date": 1628079955659,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1628777196207,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \n namespace App\\Models;\n \n use App\\User;\n-\n+use App\\Models\\VoxoMedias;\n /**\n  * Class User.\n  */\n class UserSaveMedias extends BaseModel\n@@ -17,5 +17,10 @@\n     protected $dates = [\n         'created_at',\n         'updated_at',\n     ];\n+\n+    public function likes()\n+    {\n+        return $this->hasMany(VoxoMedias::class, 'voxo_media_id');\n+    }\n }\n"
+                },
+                {
+                    "date": 1628777212004,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         'created_at',\n         'updated_at',\n     ];\n \n-    public function likes()\n+    public function vMedia()\n     {\n         return $this->hasMany(VoxoMedias::class, 'voxo_media_id');\n     }\n }\n"
+                },
+                {
+                    "date": 1628777295586,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,7 +20,7 @@\n     ];\n \n     public function vMedia()\n     {\n-        return $this->hasMany(VoxoMedias::class, 'voxo_media_id');\n+        return $this->hasMany(VoxoMedias::class, 'voxo_media_id', 'id');\n     }\n }\n"
+                },
+                {
+                    "date": 1628777305876,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,7 +20,7 @@\n     ];\n \n     public function vMedia()\n     {\n-        return $this->hasMany(VoxoMedias::class, 'voxo_media_id', 'id');\n+        return $this->hasMany(VoxoMedias::class, 'id', 'voxo_media_id');\n     }\n }\n"
+                },
+                {
+                    "date": 1628777774587,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,5 +22,15 @@\n     public function vMedia()\n     {\n         return $this->hasMany(VoxoMedias::class, 'id', 'voxo_media_id');\n     }\n+\n+    public function comments()\n+    {\n+        return $this->hasMany(App\\Models\\VoxoMediaComment::class, 'id', 'voxo_media_id');\n+    }\n+\n+    public function likes()\n+    {\n+        return $this->hasMany(App\\Models\\VoxoMediaLike::class, 'id', 'voxo_media_id');\n+    }\n }\n"
+                },
+                {
+                    "date": 1628777805614,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,12 +25,12 @@\n     }\n \n     public function comments()\n     {\n-        return $this->hasMany(App\\Models\\VoxoMediaComment::class, 'id', 'voxo_media_id');\n+        return $this->hasMany(VoxoMediaComment::class, 'id', 'voxo_media_id');\n     }\n \n     public function likes()\n     {\n-        return $this->hasMany(App\\Models\\VoxoMediaLike::class, 'id', 'voxo_media_id');\n+        return $this->hasMany(VoxoMediaLike::class, 'id', 'voxo_media_id');\n     }\n }\n"
+                },
+                {
+                    "date": 1628777821936,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,15 +22,5 @@\n     public function vMedia()\n     {\n         return $this->hasMany(VoxoMedias::class, 'id', 'voxo_media_id');\n     }\n-\n-    public function comments()\n-    {\n-        return $this->hasMany(VoxoMediaComment::class, 'id', 'voxo_media_id');\n-    }\n-\n-    public function likes()\n-    {\n-        return $this->hasMany(VoxoMediaLike::class, 'id', 'voxo_media_id');\n-    }\n }\n"
+                },
+                {
+                    "date": 1628777840151,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,7 +20,7 @@\n     ];\n \n     public function vMedia()\n     {\n-        return $this->hasMany(VoxoMedias::class, 'id', 'voxo_media_id');\n+        return $this->belongsTo(VoxoMedias::class, 'id', 'voxo_media_id');\n     }\n }\n"
+                },
+                {
+                    "date": 1628777854410,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,7 +20,7 @@\n     ];\n \n     public function vMedia()\n     {\n-        return $this->belongsTo(VoxoMedias::class, 'id', 'voxo_media_id');\n+        return $this->belongsTo(VoxoMedias::class, 'id');\n     }\n }\n"
+                },
+                {
+                    "date": 1628777864524,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,7 +20,7 @@\n     ];\n \n     public function vMedia()\n     {\n-        return $this->belongsTo(VoxoMedias::class, 'id');\n+        return $this->belongsTo(VoxoMedias::class, 'voxo_media_id');\n     }\n }\n"
+                },
+                {
+                    "date": 1628845058042,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,12 @@\n         'created_at',\n         'updated_at',\n     ];\n \n+    protected $hidden = [\n+        'id', 'user_id', 'voxo_media_id', 'type', 'created_at', 'updated_at'\n+    ];\n+    \n     public function vMedia()\n     {\n         return $this->belongsTo(VoxoMedias::class, 'voxo_media_id');\n     }\n"
+                },
+                {
+                    "date": 1628845100792,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,11 +18,8 @@\n         'created_at',\n         'updated_at',\n     ];\n \n-    protected $hidden = [\n-        'id', 'user_id', 'voxo_media_id', 'type', 'created_at', 'updated_at'\n-    ];\n     \n     public function vMedia()\n     {\n         return $this->belongsTo(VoxoMedias::class, 'voxo_media_id');\n"
+                },
+                {
+                    "date": 1629471642021,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,27 @@\n+<?php\n+\n+namespace App\\Models;\n+\n+use App\\User;\n+use App\\Models\\Post;\n+/**\n+ * Class User.\n+ */\n+class UserSaveMedias extends BaseModel\n+{\n+/**\n+     * Dates.\n+     *\n+     * @var array\n+     */\n+    protected $dates = [\n+        'created_at',\n+        'updated_at',\n+    ];\n+\n+    \n+    public function vMedia()\n+    {\n+        return $this->belongsTo(Post::class, 'voxo_media_id');\n+    }\n+}\n"
+                }
+            ],
+            "date": 1628079955659,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Models;\n\nuse App\\User;\n\n/**\n * Class User.\n */\nclass UserSaveMedias extends BaseModel\n{\n/**\n     * Dates.\n     *\n     * @var array\n     */\n    protected $dates = [\n        'created_at',\n        'updated_at',\n    ];\n}\n"
+        }
+    ]
+}

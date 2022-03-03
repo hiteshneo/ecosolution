@@ -1,0 +1,30 @@
+{
+    "sourceFile": "app/Http/Controllers/Api/VoxoController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1628060354893,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1628060391832,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,5 +20,8 @@\n  * Fullfills all aspects related to authenticate a user.\n  */\n class VoxoController extends APIController\n {\n+    public function saveReels(Request $request){\n+        \n+    }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1628060414678,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,7 +21,7 @@\n  */\n class VoxoController extends APIController\n {\n     public function saveReels(Request $request){\n-        \n+        $user = Auth::user();\n     }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1628060442579,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,6 +22,27 @@\n class VoxoController extends APIController\n {\n     public function saveReels(Request $request){\n         $user = Auth::user();\n+\n+        $validation = Validator::make($request->all(), [\n+            'email' => 'required|email',\n+            'social_id' => 'required',\n+            'social_type' => 'required',\n+            //'device_token' => 'required',\n+            'device_type' => 'required',\n+        ]);\n+        \n+        if ($validation->fails()) {\n+            //return $this->throwValidation($validation->messages()->first());\n+            $resp = [\n+                'status' => false,\n+                'data' => '',\n+                'message' => $validation->messages()->first(),\n+                'error' => true,\n+                'errors' => '',\n+            ];\n+            return response()->json($resp, $this->statusCode);\n+        }\n+\n     }\n }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1628060354893,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Controllers\\API\\V1;\n\nuse Validator;\nuse Illuminate\\Http\\Request;\nuse Illuminate\\Support\\Facades\\Auth;\nuse Illuminate\\Support\\Facades\\Storage;\nuse Illuminate\\Support\\Facades\\Hash;\nuse Illuminate\\Foundation\\Auth\\AuthenticatesUsers;\nuse Image;\nuse App\\User;\nuse Illuminate\\Support\\Facades\\DB;\n\n/**\n * @group Authentication\n *\n * Class AuthController\n *\n * Fullfills all aspects related to authenticate a user.\n */\nclass VoxoController extends APIController\n{\n}"
+        }
+    ]
+}

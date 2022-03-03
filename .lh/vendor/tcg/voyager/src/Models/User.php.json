@@ -1,0 +1,22 @@
+{
+    "sourceFile": "vendor/tcg/voyager/src/Models/User.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1627973704115,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1629472278412,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,12 @@\n     protected $guarded = [];\n \n     public $additional_attributes = ['locale'];\n \n+    protected $hidden = [\n+        'password', 'remember_token', 'avatar', 'thumb_avatar', 'role_id', 'otp', 'email_verified_at', 'device_token', 'device_type', 'device_id', 'social_id', 'login_type', 'is_login', 'status', 'settings', 'created_at', 'updated_at'\n+    ];\n+    \n     public function getAvatarAttribute($value)\n     {\n         return $value ?? config('voyager.user.default_avatar', 'users/default.png');\n     }\n"
+                }
+            ],
+            "date": 1627973704115,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace TCG\\Voyager\\Models;\n\nuse Carbon\\Carbon;\nuse Illuminate\\Foundation\\Auth\\User as Authenticatable;\nuse TCG\\Voyager\\Contracts\\User as UserContract;\nuse TCG\\Voyager\\Traits\\VoyagerUser;\n\nclass User extends Authenticatable implements UserContract\n{\n    use VoyagerUser;\n\n    protected $guarded = [];\n\n    public $additional_attributes = ['locale'];\n\n    public function getAvatarAttribute($value)\n    {\n        return $value ?? config('voyager.user.default_avatar', 'users/default.png');\n    }\n\n    public function getThumbAvatarAttribute($value)\n    {\n        return $value ?? config('voyager.user.default_avatar', 'users/default.png');\n    }\n\n    public function setCreatedAtAttribute($value)\n    {\n        $this->attributes['created_at'] = Carbon::parse($value)->format('Y-m-d H:i:s');\n    }\n\n    public function setSettingsAttribute($value)\n    {\n        $this->attributes['settings'] = $value ? $value->toJson() : json_encode([]);\n    }\n\n    public function getSettingsAttribute($value)\n    {\n        return collect(json_decode($value));\n    }\n\n    public function setLocaleAttribute($value)\n    {\n        $this->settings = $this->settings->merge(['locale' => $value]);\n    }\n\n    public function getLocaleAttribute()\n    {\n        return $this->settings->get('locale');\n    }\n}\n"
+        }
+    ]
+}
